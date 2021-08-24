@@ -9,10 +9,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +26,7 @@ public class DataScraperController {
 
 
     @GetMapping("/get")
+    @CrossOrigin
     public ResponseEntity<?> getData(@RequestParam("url") String url, Params params) throws IOException {
         if (url.isEmpty()){
             throw new ApplicationException("URL Can't be Empty");
@@ -72,6 +70,7 @@ public class DataScraperController {
     }
 
     @GetMapping("/get/images")
+    @CrossOrigin
     public ResponseEntity<?> getImages(@RequestParam("url") String url) throws IOException {
 
         if (url.isEmpty()){
@@ -92,6 +91,7 @@ public class DataScraperController {
 
     }
     @GetMapping("/get/urls")
+    @CrossOrigin
     public ResponseEntity<?> getDataByTagName(@RequestParam("url") String url) throws IOException {
 
         if (url.isEmpty()){
