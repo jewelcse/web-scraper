@@ -27,10 +27,9 @@ public class DataScraperController {
 
 
 
+
     @GetMapping("/get")
     public ResponseEntity<?> getData(@RequestParam("url") String url, Params params) throws IOException {
-
-
         if (url.isEmpty()){
             throw new ApplicationException("URL Can't be Empty");
         }
